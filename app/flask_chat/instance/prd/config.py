@@ -16,4 +16,4 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{password}@{host}/{db_name}?ch
 SECRET_KEY = 'secret!'
 
 # ルーティング設定
-APPLICATION_ROOT = 'flask_chat/'
+APPLICATION_ROOT = '/'
