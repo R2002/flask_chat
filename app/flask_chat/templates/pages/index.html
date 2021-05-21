@@ -12,7 +12,8 @@
   </div>
   <div class="column is-8 is-offset-2">
     {% if current_user.is_authenticated %}
-    登録済の方は<a href="{{ url_for('chat.chat') }}">チャット</a>へ
+    登録済の方は<a href="{{ url_for('chat.chat') }}">チャット</a>へ<br>
+    または<a href="{{ url_for('auth.logout') }}">ログアウト</a>へ
     {% else %}
     未登録の方は<a href="{{ url_for('auth.register') }}">新規登録</a>へ<br>
     未ログインの方は<a href="{{ url_for('auth.login') }}">ログイン</a>へ
