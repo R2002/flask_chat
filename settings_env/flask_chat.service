@@ -1,0 +1,19 @@
+[Unit]
+Description=flask_chat daemon
+Requires=flask_chat.socket
+After=network.target
+
+[Service]
+User=root
+Group=root
+RuntimeDirectory=gunicorn
+WorkingDirectory=/usr/share/nginx/app/flask_chat/
+ExecStart=/usr/share/nginx/venv/flask_chat/bin/gunicorn --config /usr/share/nginx/app/flask_chat/gunicorn.conf.py run:application
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+KillMode=mixed
+PrivateTmp=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

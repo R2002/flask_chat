@@ -1,0 +1,8 @@
+[Unit]
+Description=flask_chat socket
+
+[Socket]
+ListenStream=/run/flask_chat.socket
+
+[Install]
+WantedBy=sockets.target

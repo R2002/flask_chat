@@ -1,0 +1,26 @@
+{% extends "base_chat.html" %}
+
+{% block content %}
+<div class="container has-text-centered">
+  <div class="column is-8 is-offset-2 box">
+    <form id="form" method="POST" action='#'>
+      <input id="input" class="input is-fullwidth" autocomplete="off" placeholder="Input Messages...">
+      <button class="button is-success is-fullwidth">Send a Message (Enter Key)</button>
+    </form>
+    <div id="messages" style="height:500px; overflow:auto; text-align:left;">
+    {% if list_chat %}
+      {% for list in list_chat %}
+        <div style="text-align:left; margin-top:8px;">
+          <strong>{{ list.name }} <font style="color:#aaa;">#{{ list.user_id }}</font></strong>
+          <font style="color:#ccc; font-size:80%; margin-left:20px;">{{ list.date }}</font><br>
+          {{ list.comment }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+  </div>
+  <div class="column is-8 is-offset-2">
+    <button class="button is-warning is-fullwidth" onclick="location.href='{{ url_for('index.index') }}';">Go Home</button>
+  </div>
+</div>
+{% endblock %}

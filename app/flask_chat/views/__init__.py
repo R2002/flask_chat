@@ -1,0 +1,1 @@
+import views.index, views.auth, views.chat
